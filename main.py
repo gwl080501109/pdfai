@@ -4,10 +4,6 @@ from langchain.memory import ConversationBufferMemory
 
 st.title("海亮知识库")
 
-
-with st.sidebar:
-    mobile = st.text_input("请输入你的手机号")
-    st.info("*******************")
 if "memory" not in st.session_state:
     st.session_state["memory"] = ConversationBufferMemory(
         return_messages=True,
@@ -15,8 +11,6 @@ if "memory" not in st.session_state:
         output_key="answer"
 
     )
-    st.session_state["messages"] = [{"role":"ai",
-                                     "content":"你好，我是你的小助手，有什么可以帮你的吗"}]
 
 
 upload_file = st.file_uploader("上传你的PDF文件: ", type="pdf")
